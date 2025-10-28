@@ -1,24 +1,16 @@
 {
   "version": 2,
   "builds": [
-    {
-      "src": "manage.py",
-      "use": "@vercel/python"
-    }
+    { "src": "manage.py", "use": "@vercel/python" }
   ],
   "env": {
-    "DJANGO_SETTINGS_MODULE": "marketplace.settings",
-    "PYTHONUNBUFFERED": "1"
+    "DJANGO_SETTINGS_MODULE": "local_service_marketplace.settings",
+    "PYTHONUNBUFFERED": "1",
+    "SECRET_KEY": "django-insecure-=ty0f+rmk8t#g7ivpoe32^gp#cuse44%)r!jjk+4&#ty4yx-rj"
   },
   "buildCommand": "pip install -r requirements.txt && python manage.py collectstatic --noinput",
   "routes": [
-    {
-      "src": "/static/(.*)",
-      "dest": "/static/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "manage.py"
-    }
+    { "src": "/static/(.*)", "dest": "/static/$1" },
+    { "src": "/(.*)", "dest": "manage.py" }
   ]
 }
